@@ -1,4 +1,5 @@
-__pycache__
 .idea
+__pycache__
 venv
+opendata/.env
 opendata/handle/gsheet.py
