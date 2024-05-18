@@ -4,6 +4,7 @@ from urllib.request import urlretrieve
 
 from dotenv import load_dotenv
 
+from alert import main as alert
 from handle.database import write_data
 from handle.xml import parse_xml
 from handle.zip import unzip as unzip
@@ -30,6 +31,10 @@ def main():
         xml_file = get_file_list(path=f'./data/cwa/{value[0]}/{value[1]}/')[-1]
         data = list2str(parse_xml(file_path=f'./data/cwa/{value[0]}/{value[1]}/{xml_file}', data_id='O-A0002-002'))
         write_data(now, data)
+        sleep(5)
+        ndata: list[float] = list[float](data.split(' ', -1))
+        if float(ndata[0]) >= 5.0:
+            alert()
         sleep(60)
 
 

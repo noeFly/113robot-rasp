@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "creative-113",
+  "private_key_id": "280a2ba283f9b34cf2eff718aac73538f38248cf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDZv4/d2pIJ2JBO\n02PQVvsbcrPoR0JIqMxOnyj0+837MD4Um+bu9xYyIsHMd5RChYWqs+eWucxkW2jc\nL2ING34FwSFTDiRBHnFXXtXQ25OSdp5NW9gBm4xE+Oc51hvhyvwx0nFdNvYjy2/T\nRvySggN2TOHvB6yqDCdRr+ki3HPp7XJwJNTb5oqvOB1SS1Fi3lSI9fN5WFrlAa2I\nsqbuTfPRsjoE+L0oxTDOeS/CdaneMbCvzUrgpGQwI/gvFQTEZjtm4M2BE6XB2KqP\nAn+pNDv6Ky5D7R+JePOPtTAijIHVf5eXNOyN/ctBl2GqOcjn48Sn9XNBXoMl5sfH\nkbsnzefFAgMBAAECggEAEb+5nF3alY7fhG1ar3rHkR8yZvaYApAvxyDWF9IGojj2\ndnuWwVfGqWOH5IDCxwFXOejcMb8HWA7TZ089cNAS36k0bC606dHvby29w/6B8uhU\nUv3vh4IEVwLq5h37u9Xt5KnAr9ZxDc3hWZlpsQ+D9Lqjl/ZKLro64j+ygzLxB9o6\ngiX6jY/LaseB7467lhtk11zKP7PMwsN72fU0QrkFDGIJMdDHbsjIj/pFbbQpgloT\nF1P4PmLWJ62mvqbHnjHEBd1N9x+gUJSSwebxBy0aJ6lZ3PDMkX1WNZ531IizXU8V\nLmlVPW1qoIxbAk51Y0OtaDmRupFlK0muI6PQQuipAQKBgQDtM4ZHkyE5JrZcEoxa\nf/9HEhopINTqbJgiQOzz9Ju+5H6SySNveMyBDc1AkRVfejmgsiDejs/1sHrExLaZ\nWF8p1crjJ0hkVasLxQ5wFZ1PkxOIpoaIm2MzG2tLls26nTF9Q0P/p+NzWWRb8u45\nbimUg1UIAKCFdIlnsUFBzcbP4QKBgQDrAV0/k5vFYaVHYUJoa+Gw163NxcYHZecS\nEGtnQw0shVm5QnKesltv+s8jPM0cjWTGy2Z6MzQndBK0gNG1FFwScnKa4Bdh/+1v\ntOHOTQq8QJYvIyrm8jX4SSBSn3a1S+6FyyWPgpXJxY1st4MqLnBCjMM2b6bntjZM\nYDZovGpkZQKBgGsJ40CNTmLB62zlGd0FAaeKra99l1cqJgTfE46LBXVBGzUV+x2k\nf3SFS+glEGYDe9neSCLmg0W1m9ELi/LrBBaW2XVkFrDgT82B4SAHQPPVxOzXaMJg\njIVVjDeSF8hsgxapshe+JU+6OSWdHI9h/PV9xnNUBRv0GMVoIbCWMW9BAoGAQ6+0\n5+bf6s3hCNoegmzwKDs2uBnKm77h+vX3uVo6pSQTX6Sf1s2QQISAvKl6ekrPR+K1\ntWSiFOr9qDeiLwGaM0X7dFgu4+8OuCnlD8Jo4SfJGfKLHNGOceC+Co4bZsRkAu0r\n+FWoRuE7hqCkirWtZ72bTEaEUCDPKthbU3dRPXECgYEA6Z/mwZU5yfvxiQpRpjJB\nZ2XA2okgP+3JDsEHJqjAYELcGjNF7x8zgKmGLAKmcnANSW3ehamasi32gqHhNM9J\n8I+zehkB9t+3zg6F6kw446HTMhozo7ZGWnXU1cwZpflCy7OYahjMV6ExJ6IA01Cd\n+cjXxSOrF9HelI7M54ZpK9E=\n-----END PRIVATE KEY-----\n",
+  "client_email": "nomorebridge@creative-113.iam.gserviceaccount.com",
+  "client_id": "115183877522701580618",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nomorebridge%40creative-113.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
