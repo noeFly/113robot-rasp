@@ -50,7 +50,7 @@ def on_massage(_, __, message) -> None:
         cur.execute('INSERT INTO water VALUES ( ?, ? )', (unix_timestamp(), message.payload))
         con.commit()
         con.close()
-        if float(message.payload) >= 0:
+        if float(message.payload) >= 4000:
             line_notify(False)
 
     # elif message.topic == 'alert':
