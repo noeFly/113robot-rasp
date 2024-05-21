@@ -57,7 +57,7 @@ def main() -> None:
     client.on_connect = on_connect
     client.username_pw_set('letsgomqtt', 'letsgooooo')
     client.connect('t20111a2.ala.asia-southeast1.emqxsl.com', 8883)
-    key = pygsheets.authorize(service_file='./creative-113-280a2ba283f9.json')
+    key = pygsheets.authorize(service_file='./apikey.json')
     sheet = key.open_by_key('1ha7BqjG4fp5xTt_1_Qs-iC7H4ENWoutN3YyUZxKqqLo')
     worksheet = sheet.worksheet_by_title('工作表1')
     while True:
