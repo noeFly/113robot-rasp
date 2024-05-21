@@ -4,8 +4,8 @@ from time import sleep
 import requests
 
 
-def send_line_notify(final, data) -> None:
-    if final == 0:
+def send_line_notify(final: bool, data: any) -> None:
+    if not final:
         requests.post(
             'https://notify-api.line.me/api/notify',
             headers={
@@ -45,14 +45,14 @@ def main():
     cur.execute('SELECT * FROM parking')
     parker = cur.fetchall()
     for i in range(len(parker)):
-        send_line_notify(0, parker[i])
+        send_line_notify(False, parker[i])
     con.close()
     sleep(5)
     con = sqlite3.connect('./../backend.db')
     cur = con.cursor()
     cur.execute('SELECT * FROM parking')
     for i in range(len(parker)):
-        send_line_notify(1, parker[i])
+        send_line_notify(True, parker[i])
 
 
 if __name__ == '__main__':
