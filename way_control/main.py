@@ -2,8 +2,9 @@ import sqlite3
 
 from paho.mqtt import client as mqtt
 
+from alert import main as line_notify
 from db import add_parking, check_database, del_parking
-from toolbox import log
+from toolbox import log, unix_timestamp
 
 client: any
 wayin_car: bool = False
@@ -12,7 +13,7 @@ wayout_car: bool = False
 
 def on_connect(cli, _, __, rc) -> None:
     log(0, 4, f'已連線至 MQTT Broker，結果代碼 {rc}')
-    cli.subscribe('wayIn', 'wayOut', 'rfid0', 'rfid1')
+    cli.subscribe('wayIn', 'wayOut', 'rfid0', 'rfid1', 'water')
 
 
 def on_massage(_, __, message) -> None:
@@ -43,6 +44,15 @@ def on_massage(_, __, message) -> None:
             return
         client.publish('wayOut', 'gate.action')
         del_parking(message.payload)
+    elif message.topic == 'water':
+        con = sqlite3.connect('./../backend.db')
+        cur = con.cursor()
+        cur.execute('INSERT INTO water VALUES ( ?, ? )', (unix_timestamp(), message.payload))
+        con.commit()
+        con.close()
+        if float(message.payload) >= 0:
+            line_notify(False)
+
     # elif message.topic == 'alert':
     # if message.payload == 'override'
     # print(f'[{message.topic}]: {message.payload}')

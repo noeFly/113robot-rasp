@@ -5,9 +5,10 @@ def main():
     con = sqlite3.connect('./../backend.db')
     cur = con.cursor()
     ####################################################################################################################
-    cur.execute('CREATE TABLE IF NOT EXISTS cardinfo (uuid INT, name TEXT, phone TEXT)')
-    cur.execute('CREATE TABLE IF NOT EXISTS opendata (time INT, data TEXT)')
-    cur.execute('CREATE TABLE IF NOT exists parking ( uuid INT, time INT,name TEXT, phone TEXT)')
+    cur.execute('CREATE TABLE IF NOT EXISTS cardinfo (uuid INT, name TEXT, phone TEXT )')
+    cur.execute('CREATE TABLE IF NOT EXISTS opendata (time INT, data TEXT )')
+    cur.execute('CREATE TABLE IF NOT EXISTS parking ( uuid TEXT, time INT,name TEXT, phone TEXT )')
+    cur.execute('CREATE TABLE IF NOT EXISTS water ( time INT, value INT )')
     # ##################################################################################################################
     cur.execute('INSERT INTO cardinfo VALUES ("", "林偉哲", "0917-654-321")')
     cur.execute('INSERT INTO cardinfo VALUES ("", "許雅文", "0986-123-456")')

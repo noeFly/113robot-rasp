@@ -1,7 +1,10 @@
 import sqlite3
 
+from db_init import main as init
+
 
 def main():
+    init()
     con = sqlite3.connect('./../backend.db')
     cur = con.cursor()
     cur.execute('INSERT INTO parking VALUES (123, 123456789, "戴珈嚎", "0947-890-123")')
