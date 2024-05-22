@@ -9,7 +9,6 @@ def send_line_notify(final: bool, data: any) -> None:
             'https://notify-api.line.me/api/notify',
             headers={
                 'Authorization': 'Bearer X4xlqEByG0H1LGsfXn2SbR8fveV339tcqh54fwynptb'
-                # 'Authorization': 'Bearer URQJ4DlgJn4gbSntMQWCZeSgdfNI2FHk1mHdV32dDVb'
             },
             data={
                 'message':
@@ -24,7 +23,6 @@ def send_line_notify(final: bool, data: any) -> None:
             'https://notify-api.line.me/api/notify',
             headers={
                 'Authorization': 'Bearer X4xlqEByG0H1LGsfXn2SbR8fveV339tcqh54fwynptb'
-                # 'Authorization': 'Bearer URQJ4DlgJn4gbSntMQWCZeSgdfNI2FHk1mHdV32dDVb'
             },
             data={
                 'message':
