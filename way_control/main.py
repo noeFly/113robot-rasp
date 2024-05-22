@@ -13,38 +13,43 @@ wayout_car: bool = False
 
 def on_connect(cli, _, __, rc) -> None:
     log(0, 4, f'已連線至 MQTT Broker，結果代碼 {rc}')
-    cli.subscribe('wayIn', 'wayOut', 'rfid0', 'rfid1', 'water')
+    cli.subscribe(
+        'noefly/mqtt/wayIn',
+        'noefly/mqtt/wayOut',
+        'noefly/mqtt/rfid0',
+        'noefly/mqtt/rfid1',
+        'noefly/mqtt/water')
 
 
 def on_massage(_, __, message) -> None:
     global client, wayin_car, wayout_car
-    if message.topic == 'wayIn':
+    if message.topic == 'noefly/mqtt/wayIn':
         if message.payload == 'sonar.enable':
             wayin_car = True
         elif message.payload == 'sonar.disable':
             wayin_car = False
-    elif message.topic == 'wayOut':
+    elif message.topic == 'noefly/mqtt/wayOut':
         if message.payload == 'sonar.enable':
             wayout_car = True
         elif message.payload == 'sonar.disable':
             wayout_car = False
-    elif message.topic == 'rfid0':
+    elif message.topic == 'noefly/mqtt/rfid0':
         if not wayin_car:
             return
         if not check_database(message.payload):
-            client.publish('wayIn', 'id.notfound')
+            client.publish('noefly/mqtt/wayIn', 'id.notfound')
             return
-        client.publish('wayIn', 'gate.action')
+        client.publish('noefly/mqtt/wayIn', 'gate.action')
         add_parking(message.payload)
-    elif message.topic == 'rfid1':
+    elif message.topic == 'noefly/mqtt/rfid1':
         if not wayout_car:
             return
         if not check_database(message.payload):
-            client.publish('wayOut', 'id.notfound')
+            client.publish('noefly/mqtt/wayOut', 'id.notfound')
             return
-        client.publish('wayOut', 'gate.action')
+        client.publish('noefly/mqtt/wayOut', 'gate.action')
         del_parking(message.payload)
-    elif message.topic == 'water':
+    elif message.topic == 'noefly/mqtt/water':
         con = sqlite3.connect('./../backend.db')
         cur = con.cursor()
         cur.execute('INSERT INTO water VALUES ( ?, ? )', (unix_timestamp(), message.payload))

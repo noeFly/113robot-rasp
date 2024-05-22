@@ -48,7 +48,7 @@ def check_n_pub() -> None:
     temp = check_press()
     if check_diff():
         sam_status = temp
-        client.publish('alert', 'override')
+        client.publish('noefly/mqtt/alert', 'override')
 
 
 def main() -> None:
