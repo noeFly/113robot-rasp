@@ -55,7 +55,7 @@ def main() -> None:
     global key, sheet, worksheet, row, client, sam_status, temp
     client = mqtt.Client()
     client.on_connect = on_connect
-    client.username_pw_set('letsgomqtt', 'letsgooooo')
+    # client.username_pw_set('letsgomqtt', 'letsgooooo')
     client.connect('test.mosquitto.org', 1883)
     key = pygsheets.authorize(service_file='./apikey.json')
     sheet = key.open_by_key('1ha7BqjG4fp5xTt_1_Qs-iC7H4ENWoutN3YyUZxKqqLo')

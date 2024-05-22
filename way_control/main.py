@@ -58,22 +58,13 @@ def on_massage(_, __, message) -> None:
         if float(message.payload) >= 4000:
             line_notify(False)
 
-    # elif message.topic == 'alert':
-    # if message.payload == 'override'
-    # print(f'[{message.topic}]: {message.payload}')
-
 
 def main() -> None:
-    con = sqlite3.connect("./../backend.db")
-    cur = con.cursor()
-    cur.execute('CREATE TABLE IF NOT exists parking (uuid INT, time INT,name TEXT, phone TEXT)')
-    con.commit()
-    con.close()
     global client
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_massage = on_massage
-    client.username_pw_set('letsgomqtt', 'letsgooooo')
+    # client.username_pw_set('letsgomqtt', 'letsgooooo')
     client.connect('test.mosquitto.org', 1883)
     client.loop_forever()
 
