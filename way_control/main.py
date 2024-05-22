@@ -69,7 +69,7 @@ def main() -> None:
     client.on_connect = on_connect
     client.on_massage = on_massage
     client.username_pw_set('letsgomqtt', 'letsgooooo')
-    client.connect('t20111a2.ala.asia-southeast1.emqxsl.com', 8883)
+    client.connect('test.mosquitto.org', 1883)
     client.loop_forever()
 
 
