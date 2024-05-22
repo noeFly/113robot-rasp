@@ -44,6 +44,5 @@ def main(final: bool) -> None:
     for i in range(len(parker)):
         send_line_notify(final, parker[i])
 
-
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
