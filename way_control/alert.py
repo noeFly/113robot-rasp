@@ -39,21 +39,12 @@ def send_line_notify(final: bool, data: any) -> None:
 
 
 def main(final: bool) -> None:
-    if not final:
-        con = sqlite3.connect('./../backend.db')
-        cur = con.cursor()
-        cur.execute('SELECT * FROM parking')
-        parker = cur.fetchall()
-        for i in range(len(parker)):
-            send_line_notify(False, parker[i])
-        con.close()
-    else:
-        con = sqlite3.connect('./../backend.db')
-        cur = con.cursor()
-        cur.execute('SELECT * FROM parking')
-        parker = cur.fetchall()
-        for i in range(len(parker)):
-            send_line_notify(True, parker[i])
+    con = sqlite3.connect('./../backend.db')
+    cur = con.cursor()
+    cur.execute('SELECT * FROM parking')
+    parker = cur.fetchall()
+    for i in range(len(parker)):
+        send_line_notify(final, parker[i])
 
 
 if __name__ == '__main__':
