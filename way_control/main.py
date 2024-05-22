@@ -11,7 +11,7 @@ wayin_car: bool = False
 wayout_car: bool = False
 
 
-def on_connect(cli, _, __, rc) -> None:
+def on_connect(cli, __, ___, rc) -> None:
     log(0, 4, f'已連線至 MQTT Broker，結果代碼 {rc}')
     cli.subscribe(
         'noefly/mqtt/wayIn',
