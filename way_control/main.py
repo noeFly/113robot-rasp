@@ -13,13 +13,14 @@ wayout_car: bool = False
 
 def on_connect(cli, __, ___, rc) -> None:
     log(0, 4, f'已連線至 MQTT Broker，結果代碼 {rc}')
-    cli.subscribe(topic=(
+    topic = (
         'noefly/mqtt/wayIn',
         'noefly/mqtt/wayOut',
         'noefly/mqtt/rfid0',
         'noefly/mqtt/rfid1',
         'noefly/mqtt/water')
-    )
+    for i in range(5):
+        cli.subscribe(topic[i])
 
 
 def on_massage(_, __, message) -> None:
