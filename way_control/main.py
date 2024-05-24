@@ -13,12 +13,13 @@ wayout_car: bool = False
 
 def on_connect(cli, __, ___, rc) -> None:
     log(0, 4, f'已連線至 MQTT Broker，結果代碼 {rc}')
-    cli.subscribe(
+    cli.subscribe(topic=(
         'noefly/mqtt/wayIn',
         'noefly/mqtt/wayOut',
         'noefly/mqtt/rfid0',
         'noefly/mqtt/rfid1',
         'noefly/mqtt/water')
+    )
 
 
 def on_massage(_, __, message) -> None:
@@ -64,7 +65,6 @@ def main() -> None:
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_massage = on_massage
-    # client.username_pw_set('letsgomqtt', 'letsgooooo')
     client.connect('test.mosquitto.org', 1883)
     client.loop_forever()
 
