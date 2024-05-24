@@ -19,21 +19,23 @@ def on_connect(cli, __, ___, rc) -> None:
         'noefly/mqtt/rfid0',
         'noefly/mqtt/rfid1',
         'noefly/mqtt/water')
-    for i in range(5):
-        cli.subscribe(topic[i])
+    global client
+    for t in topic:
+        client.subscribe(t)
 
 
-def on_massage(_, __, message) -> None:
+def on_message(_, __, message) -> None:
     global client, wayin_car, wayout_car
+
     if message.topic == 'noefly/mqtt/wayIn':
-        if message.payload == 'sonar.enable':
+        if message.payload == b'module.sonar.enable':
             wayin_car = True
-        elif message.payload == 'sonar.disable':
+        elif message.payload == b'module.sonar.disable':
             wayin_car = False
     elif message.topic == 'noefly/mqtt/wayOut':
-        if message.payload == 'sonar.enable':
+        if message.payload == b'module.sonar.enable':
             wayout_car = True
-        elif message.payload == 'sonar.disable':
+        elif message.payload == b'module.sonar.disable':
             wayout_car = False
     elif message.topic == 'noefly/mqtt/rfid0':
         if not wayin_car:
@@ -59,15 +61,19 @@ def on_massage(_, __, message) -> None:
         con.close()
         if float(message.payload) >= 4000:
             line_notify(False)
+    print(wayin_car)
 
 
 def main() -> None:
     global client
     client = mqtt.Client()
     client.on_connect = on_connect
-    client.on_massage = on_massage
+    client.on_message = on_message  # 註冊 on_message 回調函數
+    client.username_pw_set("", "")
     client.connect('test.mosquitto.org', 1883)
-    client.loop_forever()
+    client.loop_start()  # 啟動非阻塞迴圈
+    while True:
+        pass  # 保持主程序運行
 
 
 if __name__ == '__main__':

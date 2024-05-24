@@ -3,18 +3,20 @@ import sqlite3
 from toolbox import unix_timestamp
 
 
-def check_database(uuid: int) -> bool:
+def check_database(uuid) -> bool:
     con = sqlite3.connect('./../backend.db')
     cur = con.cursor()
-    cur.execute('SELECT * FROM cardinfo WHERE uuid = ?', (uuid,))
+    print(uuid)
+    cur.execute(f'SELECT * FROM cardinfo WHERE uuid = ?', (str(uuid),))
     result = cur.fetchall()
+    print(result)
     return True if result else False
 
 
-def add_parking(uuid: int) -> None:
+def add_parking(uuid) -> None:
     con = sqlite3.connect('./../backend.db')
     cur = con.cursor()
-    cur.execute('SELECT * FROM cardinfo WHERE uuid = ?', (uuid,))
+    cur.execute('SELECT * FROM cardinfo WHERE uuid = ?', (str(uuid),))
     result = cur.fetchall()
     print(result)
     cur.execute('INSERT INTO parking VALUES (?, ?, ?, ?)', (uuid, unix_timestamp(), result[0][1], result[0][2]))
