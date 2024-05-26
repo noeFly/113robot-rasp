@@ -33,5 +33,5 @@
     ``` 
 3. 啟動各程式。
     ```shell
-    % bash ./start.sh
+    $ bash ./start.sh
     ```
