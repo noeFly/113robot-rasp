@@ -1,6 +1,6 @@
 .idea
+way_control/apikey.json
+opendata/apikey.json
+sam/apikey.json
 __pycache__
 venv
-opendata/.env
-opendata/handle/gsheet.py
-sam/creative-113-1c531a867bb5.json
