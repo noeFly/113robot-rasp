@@ -14,7 +14,7 @@
 ## 依賴
 
 > [!TIP]
-> 詳細依賴套件請參考 [requirements.txt](./requirements.txt)
+> 詳細依賴套件請參考 [requirements.txt](./requirements.txt)。
 
 * [Python](https://lurl.cc/holoIm)
     * [python-dotenv](https://lurl.cc/gRldhY)
