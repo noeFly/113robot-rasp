@@ -3,7 +3,7 @@ from datetime import datetime
 import pygsheets
 
 gc = pygsheets.authorize(service_file='./apikey.json')
-sam_sheet = gc.open_by_url('https://docs.google.com/spreadsheets/d/16NM4tjs9V8XxfTkYGW9Ouf-EFt7-5bwGagYKCyhGuOY')
+sam_sheet = gc.open_by_url('https://docs.google.com/spreadsheets/d/1poL6TIvQTUeJIOr-k1QbPNujmohCAVq5z9ysEHGJsTQ')
 sam_worksheet = sam_sheet[0]
 db_sheet = gc.open_by_url('https://docs.google.com/spreadsheets/d/1oOXiGIKsZaeckzPxZSUjAzNiLEC5CgEnqusLuRHMfao')
 db_worksheet = db_sheet.worksheet_by_title('sam')

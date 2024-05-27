@@ -17,7 +17,7 @@ now: int
 
 
 def unix() -> int:
-    return round((datetime.now() - datetime(1970, 1, 1)).seconds)
+    return round((datetime.now() - datetime(1970, 1, 1)).total_seconds())
 
 
 def grab_data(data_id: str, file_format: str):

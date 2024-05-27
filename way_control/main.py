@@ -63,7 +63,7 @@ def handle_wayin():
     uid = card.get_value((locate[0].row, 1))
     carid = card.get_value((locate[0].row, 2))
     name = card.get_value((locate[0].row, 3))
-    parking.append_table(values=[uid, carid, name])
+    parking.append_table(values=[f'{uid}', f'{carid}', f'{name}'])
     rfid0.append_table(values=['----', '已處理資料'])
     print('[wayin] 已發送開啟指令')
 
